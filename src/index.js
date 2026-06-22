@@ -16,3 +16,15 @@ const sayHello = (name) => {
 };
 
 sayHello('Webpack + Babel');
+
+// Lint检查 npm run lint
+const a = 1
+const b = 2
+
+// eslint-disable-next-line no-unused-vars
+const c = 3
+
+console.log(a)
+
+// 代码格式化 format
+const foo = (a,b)=>{console.log(a,b);};
