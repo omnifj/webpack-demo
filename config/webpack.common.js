@@ -7,12 +7,26 @@ module.exports = {
     filename: 'bundle.[contenthash].js',
     path: path.resolve(__dirname, '..', 'dist'),
     clean: true,
+    assetModuleFilename: 'assets/[name][hash][ext]',
   },
   module: {
     rules: [
+      // CSS
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
+      },
+
+      // 图片
+      {
+        test: /\.(png|jpe?g|gif|svg|webp)$/,
+        type: 'asset/resource',
+      },
+
+      // 字体
+      {
+        test: /\.(woff2?|eot|ttf|otf)$/,
+        type: 'asset/resource',
       },
     ],
   },
