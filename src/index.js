@@ -4,6 +4,12 @@ console.log('Hello Webpack');
 
 
 
+
+// Tree Shaking 注意 Webpack 内置的 JS 压缩器 验证打包后的代码是否包含未使用的函数
+import { add } from './math';
+const result = add(1, 2);
+console.log(result);
+
 import hot from './assets/火焰.png';
 
 const img = document.createElement('img');

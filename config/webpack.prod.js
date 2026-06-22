@@ -20,4 +20,10 @@ module.exports = merge(common, {
       filename: 'css/[name].[contenthash].css',
     }),
   ],
+  optimization: {
+  minimize: true,
+  splitChunks: {
+    chunks: 'all',
+  },
+}
 });
