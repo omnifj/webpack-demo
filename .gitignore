@@ -1,0 +1,14 @@
+.vscode/
+.github/
+.claude/
+
+node_modules/
+.pnpm-store/
+
+dist/
+build/*
+
+
+.env
+.env.*
+
