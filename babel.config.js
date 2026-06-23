@@ -3,9 +3,10 @@ module.exports = {
     [
       '@babel/preset-env',
       {
-        modules: false, // ✅ 关键：保留 ES Module
+        modules: false,        // ✅ 保留 ES Module
         targets: '> 0.25%, not dead',
       },
     ],
+    '@babel/preset-typescript',
   ],
 };

@@ -12,7 +12,7 @@ module.exports = {
    * 入口文件（Entry Point）
    * Webpack 从这里开始构建依赖图
    */
-  entry: './src/index.js',
+  entry: './src/index.ts',
 
   /**
    * 输出配置（Output）
@@ -54,7 +54,7 @@ module.exports = {
       // ==================== JavaScript / JSX ====================
       {
         // 匹配 .js 和 .jsx 文件
-        test: /\.(js|jsx)$/,
+        test: /\.(js|jsx|ts|tsx)$/,
 
         // 排除 node_modules，提升构建速度
         exclude: /node_modules/,
@@ -93,6 +93,10 @@ module.exports = {
         type: 'asset/resource',
       },
     ],
+  },
+  // 模块解析配置 导入文件时，哪些后缀可以省略
+  resolve: {
+    extensions: ['.tsx', '.ts', '.jsx', '.js'],
   },
 
   /**

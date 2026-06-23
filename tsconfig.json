@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "NodeNext", // 这里使用 NodeNext 模块解析 最新版本的规范 可以多看看TS文档
+    "moduleResolution": "NodeNext", 
+    "jsx": "react-jsx",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true
+  },
+  "include": ["src"]
+}
