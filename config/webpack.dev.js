@@ -10,6 +10,14 @@ module.exports = merge(common, {
     open: true,
     port: 3000,
   },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
+  },
   plugins: [
     new ESLintPlugin({
       extensions: ['js', 'jsx', 'ts', 'tsx'],

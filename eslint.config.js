@@ -30,6 +30,7 @@ module.exports = [
     settings: {
       react: {
         version: 'detect',
+        runtime: 'automatic',
       },
     },
     plugins: {

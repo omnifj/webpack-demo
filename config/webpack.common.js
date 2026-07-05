@@ -63,17 +63,6 @@ module.exports = {
         use: 'babel-loader',
       },
 
-      // ==================== CSS ====================
-      {
-        // 匹配 .css 文件
-        test: /\.css$/,
-
-        // Loader 执行顺序：从右到左
-        // css-loader：解析 CSS 依赖
-        // style-loader：把 CSS 注入到 DOM（开发环境）
-        use: ['style-loader', 'css-loader'],
-      },
-
       // ==================== 图片资源 ====================
       {
         // 匹配图片文件

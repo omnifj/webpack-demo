@@ -1,0 +1,135 @@
+.profile-reveal-card {
+  position: relative;
+  width: 480px;
+  height: 240px;
+  border-radius: 24px;
+  overflow: hidden;
+  cursor: none;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+  user-select: none;
+  background: var(--profile-base-bg);
+  transition: background 0.3s ease;
+}
+
+/* 底图与上层文字共用全屏居中布局 */
+.profile-reveal-card__base,
+.profile-reveal-card__overlay,
+.profile-reveal-card__transition-base {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  text-align: center;
+}
+
+/* 底图：使用 CSS 变量动态设置颜色 */
+.profile-reveal-card__base {
+  background: var(--profile-base-bg);
+  color: var(--profile-base-color);
+  font-size: 24px;
+  line-height: 1.6;
+  font-weight: 500;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* 上层文字：渐变背景，通过 clip-path 裁剪成圆形光圈 */
+.profile-reveal-card__overlay,
+.profile-reveal-card__transition-overlay {
+  background: var(--profile-overlay-bg);
+  clip-path: circle(0px at var(--x, 50%) var(--y, 50%));
+  pointer-events: none;
+  opacity: 0;
+  transition: clip-path 0.3s ease, opacity 0.2s ease;
+}
+
+.profile-reveal-card__overlay {
+  color: #ffffff;
+  font-size: 24px;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+.profile-reveal-card__transition-overlay {
+  position: absolute;
+  inset: 0;
+}
+
+/* 鼠标移入时显示光圈 */
+.profile-reveal-card__overlay.active,
+.profile-reveal-card__transition-overlay.active {
+  opacity: 1;
+  clip-path: circle(80px at var(--x, 50%) var(--y, 50%));
+}
+
+.profile-reveal-card__base p,
+.profile-reveal-card__overlay p,
+.profile-reveal-card__transition-base p {
+  margin: 0;
+}
+
+/* 跟随鼠标的圆形光标环 */
+.profile-reveal-card__cursor {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  margin-left: -80px;
+  margin-top: -80px;
+  border: 3px solid rgba(255, 255, 255, 0.95);
+  border-radius: 50%;
+  pointer-events: none;
+  box-shadow: 0 0 24px rgba(255, 255, 255, 0.6), inset 0 0 24px rgba(255, 255, 255, 0.2);
+  transition: opacity 0.2s ease;
+  opacity: 0;
+  z-index: 30;
+}
+
+.profile-reveal-card:hover .profile-reveal-card__cursor {
+  opacity: 1;
+}
+
+/* 底部操作提示，悬停时显示 */
+.profile-reveal-card__hint {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  color: #999999;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.profile-reveal-card:hover .profile-reveal-card__hint {
+  opacity: 1;
+}
+
+/* 双击切换时的扩散过渡动画：从点击处圆形放大到覆盖整个卡片 */
+@keyframes expand-from-click {
+  from {
+    clip-path: circle(0px at var(--cx, 50%) var(--cy, 50%));
+  }
+  to {
+    clip-path: circle(200% at var(--cx, 50%) var(--cy, 50%));
+  }
+}
+
+/* 过渡层容器，覆盖在卡片上方 */
+.profile-reveal-card__transition {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  overflow: hidden;
+  animation: expand-from-click 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* 过渡层底图：与切换后的底图使用相同颜色变量 */
+.profile-reveal-card__transition-base {
+  background: var(--profile-base-bg);
+  color: var(--profile-base-color);
+  font-size: 24px;
+  line-height: 1.6;
+  font-weight: 500;
+}
