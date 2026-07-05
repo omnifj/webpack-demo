@@ -12,7 +12,7 @@ module.exports = {
    * 入口文件（Entry Point）
    * Webpack 从这里开始构建依赖图
    */
-  entry: './src/index.ts',
+  entry: './src/index.tsx',
 
   /**
    * 输出配置（Output）
