@@ -1,6 +1,7 @@
 import React from 'react';
 import ProfileRevealCard from './components/ProfileRevealCard';
 import useCopyWatermark from './hooks/useCopyWatermark';
+import useDisableInteraction from './hooks/useDisableInteraction';
 import useScreenshotWatermark from './hooks/useScreenshotWatermark';
 
 const CHINESE_TEXT = '我叫 omnifj，是一名前端工程师';
@@ -34,6 +35,11 @@ export default function App() {
     rotate: -30,
   });
 
+  useDisableInteraction({
+    enabled: true,
+    allowSelector: '.copy-test',
+  });
+
   return (
     <div style={{ padding: 40, fontFamily: 'sans-serif' }}>
       <ProfileRevealCard
@@ -44,7 +50,7 @@ export default function App() {
         hintToOverlay="双击圆圈内切换为英文反向效果"
         hintToBase="双击圆圈内切换为中文效果"
       />
-      <p style={{ marginTop: 40, lineHeight: 1.8, color: '#333' }}>
+      <p className="copy-test" style={{ marginTop: 40, lineHeight: 1.8, color: '#333' }}>
         这是一段用于测试复制水印的示例文本。选中这段文字并使用 Ctrl+C（或右键复制），
         剪贴板中的内容会自动在末尾追加水印信息。你也可以尝试切换卡片语言，
         复制不同状态下的文本，观察水印是否正常生效。
