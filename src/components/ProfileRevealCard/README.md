@@ -41,25 +41,25 @@ export default function App() {
 
 ## Props
 
-| 属性 | 类型 | 必填 | 默认值 | 说明 |
-| --- | --- | --- | --- | --- |
-| `baseText` | `string` | 是 | - | 默认状态下显示的主文字 |
-| `overlayText` | `string` | 是 | - | 默认状态下光圈内显示的文字 |
-| `baseTheme` | `ProfileRevealCardTheme` | 否 | 白底紫蓝渐变 | 默认状态主题色 |
-| `overlayTheme` | `ProfileRevealCardTheme` | 否 | 暖橙底青绿渐变 | 切换后状态主题色 |
-| `hintToOverlay` | `string` | 否 | `双击圆圈内切换` | 默认状态提示语 |
-| `hintToBase` | `string` | 否 | `双击圆圈内返回` | 切换后状态提示语 |
-| `duration` | `number` | 否 | `600` | 扩散过渡动画时长（ms） |
-| `className` | `string` | 否 | `''` | 自定义根节点类名 |
-| `style` | `React.CSSProperties` | 否 | - | 自定义根节点样式 |
+| 属性            | 类型                     | 必填 | 默认值           | 说明                       |
+| --------------- | ------------------------ | ---- | ---------------- | -------------------------- |
+| `baseText`      | `string`                 | 是   | -                | 默认状态下显示的主文字     |
+| `overlayText`   | `string`                 | 是   | -                | 默认状态下光圈内显示的文字 |
+| `baseTheme`     | `ProfileRevealCardTheme` | 否   | 白底紫蓝渐变     | 默认状态主题色             |
+| `overlayTheme`  | `ProfileRevealCardTheme` | 否   | 暖橙底青绿渐变   | 切换后状态主题色           |
+| `hintToOverlay` | `string`                 | 否   | `双击圆圈内切换` | 默认状态提示语             |
+| `hintToBase`    | `string`                 | 否   | `双击圆圈内返回` | 切换后状态提示语           |
+| `duration`      | `number`                 | 否   | `600`            | 扩散过渡动画时长（ms）     |
+| `className`     | `string`                 | 否   | `''`             | 自定义根节点类名           |
+| `style`         | `React.CSSProperties`    | 否   | -                | 自定义根节点样式           |
 
 ## Theme 类型
 
 ```ts
 interface ProfileRevealCardTheme {
   background: string; // 底图背景色
-  color: string;      // 底图文字颜色
-  overlay: string;    // 光圈渐变背景，如 linear-gradient(...)
+  color: string; // 底图文字颜色
+  overlay: string; // 光圈渐变背景，如 linear-gradient(...)
 }
 ```
 

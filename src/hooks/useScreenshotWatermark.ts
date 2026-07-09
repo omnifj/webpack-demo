@@ -23,7 +23,9 @@ export interface UseScreenshotWatermarkOptions {
   opacity?: number;
 }
 
-const drawWatermark = (options: Required<UseScreenshotWatermarkOptions>): string => {
+const drawWatermark = (
+  options: Required<UseScreenshotWatermarkOptions>
+): string => {
   const { text, subText, fontSize, color, rotate, gapX, gapY } = options;
   const canvas = document.createElement('canvas');
   const ctx = canvas.getContext('2d');
@@ -33,7 +35,11 @@ const drawWatermark = (options: Required<UseScreenshotWatermarkOptions>): string
   const mainWidth = ctx.measureText(text).width;
   const subWidth = subText ? ctx.measureText(subText).width : 0;
 
-  const width = Math.max(gapX, mainWidth + fontSize * 2, subWidth + fontSize * 2);
+  const width = Math.max(
+    gapX,
+    mainWidth + fontSize * 2,
+    subWidth + fontSize * 2
+  );
   const height = Math.max(gapY, fontSize * (subText ? 4 : 2));
 
   canvas.width = width;
@@ -67,7 +73,9 @@ const drawWatermark = (options: Required<UseScreenshotWatermarkOptions>): string
  * 为页面添加截图水印覆盖层。
  * 通过固定定位的 canvas 图案覆盖整个视口，截图时会随内容一起被捕获，起到标识来源的作用。
  */
-export default function useScreenshotWatermark(options: UseScreenshotWatermarkOptions = {}) {
+export default function useScreenshotWatermark(
+  options: UseScreenshotWatermarkOptions = {}
+) {
   const {
     text = 'Watermark',
     subText = '',

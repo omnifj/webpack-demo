@@ -7,7 +7,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // Webpack 配置入口
 module.exports = {
-
   /**
    * 入口文件（Entry Point）
    * Webpack 从这里开始构建依赖图
@@ -18,7 +17,6 @@ module.exports = {
    * 输出配置（Output）
    */
   output: {
-
     /**
      * 输出的 JS 文件名
      * [contenthash]：文件内容变化时 hash 才会变（利于浏览器缓存）
@@ -50,7 +48,6 @@ module.exports = {
    */
   module: {
     rules: [
-
       // ==================== JavaScript / JSX ====================
       {
         // 匹配 .js 和 .jsx 文件
@@ -93,7 +90,6 @@ module.exports = {
    * 用于执行 Loader 做不到的事情
    */
   plugins: [
-
     // 生成 HTML 文件，并自动引入打包后的 JS / CSS
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '..', 'public/index.html'),

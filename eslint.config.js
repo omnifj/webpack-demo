@@ -12,7 +12,7 @@ const tsPlugin = require('@typescript-eslint/eslint-plugin');
 
 module.exports = [
   {
-    files: ["**/*.{js,jsx,ts,tsx}"],
+    files: ['**/*.{js,jsx,ts,tsx}'],
     languageOptions: {
       parser: tsParser, // 这里的 tsParser 需要你自己定义或引入 TypeScript 的解析器
       ecmaVersion: 'latest',
@@ -34,7 +34,7 @@ module.exports = [
       },
     },
     plugins: {
-      "@typescript-eslint": tsPlugin,
+      '@typescript-eslint': tsPlugin,
       react: react, //显式赋值
       'react-hooks': reactHooks,
     },

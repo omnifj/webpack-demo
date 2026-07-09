@@ -3,7 +3,7 @@ module.exports = {
     [
       '@babel/preset-env',
       {
-        modules: false,        // ✅ 保留 ES Module
+        modules: false, // ✅ 保留 ES Module
         targets: '> 0.25%, not dead',
       },
     ],

@@ -30,7 +30,9 @@ const buildSelectStyle = (allowSelector: string): string => {
  * 右键和拖拽通过事件监听拦截；
  * 可通过 allowSelector 指定白名单元素，使其保持正常交互。
  */
-export default function useDisableInteraction(options: UseDisableInteractionOptions = {}) {
+export default function useDisableInteraction(
+  options: UseDisableInteractionOptions = {}
+) {
   const {
     disableContextMenu = true,
     disableDrag = true,
@@ -63,12 +65,16 @@ export default function useDisableInteraction(options: UseDisableInteractionOpti
 
     if (disableContextMenu) {
       document.addEventListener('contextmenu', handleContextMenu, capture);
-      cleanups.push(() => document.removeEventListener('contextmenu', handleContextMenu, capture));
+      cleanups.push(() =>
+        document.removeEventListener('contextmenu', handleContextMenu, capture)
+      );
     }
 
     if (disableDrag) {
       document.addEventListener('dragstart', handleDragStart, capture);
-      cleanups.push(() => document.removeEventListener('dragstart', handleDragStart, capture));
+      cleanups.push(() =>
+        document.removeEventListener('dragstart', handleDragStart, capture)
+      );
     }
 
     let style: HTMLStyleElement | null = null;

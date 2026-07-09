@@ -50,8 +50,12 @@ export default function App() {
         hintToOverlay="双击圆圈内切换为英文反向效果"
         hintToBase="双击圆圈内切换为中文效果"
       />
-      <p className="copy-test" style={{ marginTop: 40, lineHeight: 1.8, color: '#333' }}>
-        这是一段用于测试复制水印的示例文本。选中这段文字并使用 Ctrl+C（或右键复制），
+      <p
+        className="copy-test"
+        style={{ marginTop: 40, lineHeight: 1.8, color: '#333' }}
+      >
+        这是一段用于测试复制水印的示例文本。选中这段文字并使用
+        Ctrl+C（或右键复制），
         剪贴板中的内容会自动在末尾追加水印信息。你也可以尝试切换卡片语言，
         复制不同状态下的文本，观察水印是否正常生效。
       </p>

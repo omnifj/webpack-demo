@@ -66,7 +66,9 @@ export default function ProfileRevealCard({
   const [isOverlayActive, setIsOverlayActive] = useState(false);
 
   // 双击切换时的扩散圆心坐标
-  const [transition, setTransition] = useState<{ x: number; y: number } | null>(null);
+  const [transition, setTransition] = useState<{ x: number; y: number } | null>(
+    null
+  );
 
   // 根据当前状态切换主文字与光圈文字
   const currentTheme = isOverlayActive ? overlayTheme : baseTheme;
@@ -84,15 +86,18 @@ export default function ProfileRevealCard({
   }, []);
 
   // 双击：立即切换主题，同时从点击处展开扩散过渡层
-  const handleDoubleClick = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    if (transition || !cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    setIsOverlayActive((prev) => !prev);
-    setTransition({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
-  }, [transition]);
+  const handleDoubleClick = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      if (transition || !cardRef.current) return;
+      const rect = cardRef.current.getBoundingClientRect();
+      setIsOverlayActive((prev) => !prev);
+      setTransition({
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
+      });
+    },
+    [transition]
+  );
 
   // 扩散动画结束后移除过渡层
   useEffect(() => {
@@ -127,10 +132,12 @@ export default function ProfileRevealCard({
       {/* 上层文字：通过 clip-path 圆形蒙版显示 */}
       <div
         className={`profile-reveal-card__overlay ${isInside ? 'active' : ''}`}
-        style={{
-          '--x': `${mousePos.x}px`,
-          '--y': `${mousePos.y}px`,
-        } as React.CSSProperties}
+        style={
+          {
+            '--x': `${mousePos.x}px`,
+            '--y': `${mousePos.y}px`,
+          } as React.CSSProperties
+        }
       >
         <p>{currentOverlayText}</p>
       </div>
@@ -155,20 +162,24 @@ export default function ProfileRevealCard({
       {transition && (
         <div
           className="profile-reveal-card__transition"
-          style={{
-            '--cx': `${transition.x}px`,
-            '--cy': `${transition.y}px`,
-          } as React.CSSProperties}
+          style={
+            {
+              '--cx': `${transition.x}px`,
+              '--cy': `${transition.y}px`,
+            } as React.CSSProperties
+          }
         >
           <div className="profile-reveal-card__transition-base">
             <p>{currentBaseText}</p>
           </div>
           <div
             className={`profile-reveal-card__transition-overlay ${isInside ? 'active' : ''}`}
-            style={{
-              '--x': `${mousePos.x}px`,
-              '--y': `${mousePos.y}px`,
-            } as React.CSSProperties}
+            style={
+              {
+                '--x': `${mousePos.x}px`,
+                '--y': `${mousePos.y}px`,
+              } as React.CSSProperties
+            }
           />
         </div>
       )}

@@ -7,12 +7,25 @@
     "*.scss",
     "*.less"
   ],
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix --cache",
+      "prettier --write --cache"
+    ],
+    "*.{css,scss,less}": [
+      "prettier --write"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
+  },
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack serve --config config/webpack.dev.js",
     "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +37,8 @@
     "@babel/preset-env": "^7.29.7",
     "@babel/preset-react": "^7.29.7",
     "@babel/preset-typescript": "^7.29.7",
+    "@commitlint/cli": "^21.2.1",
+    "@commitlint/config-conventional": "^21.2.0",
     "@eslint/js": "^9.39.4",
     "@types/node": "^26.0.0",
     "@types/react": "^19.2.17",
@@ -40,6 +55,8 @@
     "eslint-webpack-plugin": "^6.0.0",
     "globals": "^17.6.0",
     "html-webpack-plugin": "^5.6.7",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.0.8",
     "mini-css-extract-plugin": "^2.10.2",
     "prettier": "^3.8.4",
     "style-loader": "^4.0.0",

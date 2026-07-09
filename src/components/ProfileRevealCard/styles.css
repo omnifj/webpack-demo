@@ -31,7 +31,9 @@
   font-size: 24px;
   line-height: 1.6;
   font-weight: 500;
-  transition: background 0.3s ease, color 0.3s ease;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
 }
 
 /* 上层文字：渐变背景，通过 clip-path 裁剪成圆形光圈 */
@@ -41,7 +43,9 @@
   clip-path: circle(0px at var(--x, 50%) var(--y, 50%));
   pointer-events: none;
   opacity: 0;
-  transition: clip-path 0.3s ease, opacity 0.2s ease;
+  transition:
+    clip-path 0.3s ease,
+    opacity 0.2s ease;
 }
 
 .profile-reveal-card__overlay {
@@ -79,7 +83,9 @@
   border: 3px solid rgba(255, 255, 255, 0.95);
   border-radius: 50%;
   pointer-events: none;
-  box-shadow: 0 0 24px rgba(255, 255, 255, 0.6), inset 0 0 24px rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 0 24px rgba(255, 255, 255, 0.6),
+    inset 0 0 24px rgba(255, 255, 255, 0.2);
   transition: opacity 0.2s ease;
   opacity: 0;
   z-index: 30;
